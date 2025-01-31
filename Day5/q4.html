@@ -56,27 +56,27 @@
       }
     }
 
-    function checkInputs(e) {
-      e.preventDefault();
+    // function checkInputs(e) {
+    //   e.preventDefault();
 
-      if (firstName.value.trim() === "" || lastName.value.trim() === "") {
-        const tempSpan = document.createElement("span");
-        tempSpan.style.color = "red";
-        tempSpan.textContent = "Fields are mandatory to fill";
-        document.body.appendChild(tempSpan);
-        setTimeout(() => {
-          tempSpan.remove();
-        }, 3000);
-      } else {
-        const p = document.createElement("p");
-        p.textContent = "Your Form is Submited Successfully";
-        document.body.appendChild(p);
-        setTimeout(() => p.remove(), 3000);
+    //   if (firstName.value.trim() === "" || lastName.value.trim() === "") {
+    //     const tempSpan = document.createElement("span");
+    //     tempSpan.style.color = "red";
+    //     tempSpan.textContent = "Fields are mandatory to fill";
+    //     document.body.appendChild(tempSpan);
+    //     setTimeout(() => {
+    //       tempSpan.remove();
+    //     }, 3000);
+    //   } else {
+    //     const p = document.createElement("p");
+    //     p.textContent = "Your Form is Submited Successfully";
+    //     document.body.appendChild(p);
+    //     setTimeout(() => p.remove(), 3000);
 
-        firstName.value = "";
-        lastName.value = "";
-      }
-    }
+    //     firstName.value = "";
+    //     lastName.value = "";
+    //   }
+    // }
 
     checkForm.addEventListener("submit", checkInputs);
   </script>
