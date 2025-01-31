@@ -1,0 +1,83 @@
+<!-- Q: Create a form validator that checks for empty fields -->
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      .error {
+        color: red;
+        font-size: 14px;
+      }
+    </style>
+  </head>
+  <body>
+    <form id="checkForm">
+      <label for="firstName">First Name: </label>
+      <input type="text" id="firstName" />
+      <span class="error" id="firstNameError"></span>
+      <br />
+      <label for="lastName">Last Name: </label>
+      <input type="text" id="lastName" />
+      <span class="error" id="lastNameError"></span>
+      <br />
+      <button id="submitBtn">Submit</button>
+    </form>
+  </body>
+  <script>
+    const firstName = document.getElementById("firstName");
+    const lastName = document.getElementById("lastName");
+    const checkForm = document.getElementById("checkForm");
+    const firstNameError = document.getElementById("firstNameError");
+    const lastNameError = document.getElementById("lastNameError");
+
+    function checkInputs(e) {
+      e.preventDefault();
+      let valid = true;
+
+      firstNameError.textContent = "";
+      lastNameError.textContent = "";
+
+      if (firstName.value.trim() === "") {
+        firstNameError.textContent = "Frist name is required";
+        valid = false;
+      }
+
+      if (lastName.value.trim() === "") {
+        lastNameError.textContent = "Last name is required";
+        valid = false;
+      }
+
+      if (valid) {
+        alert("Your form is submitted successfully");
+        checkForm.reset();
+      }
+    }
+
+    function checkInputs(e) {
+      e.preventDefault();
+
+      if (firstName.value.trim() === "" || lastName.value.trim() === "") {
+        const tempSpan = document.createElement("span");
+        tempSpan.style.color = "red";
+        tempSpan.textContent = "Fields are mandatory to fill";
+        document.body.appendChild(tempSpan);
+        setTimeout(() => {
+          tempSpan.remove();
+        }, 3000);
+      } else {
+        const p = document.createElement("p");
+        p.textContent = "Your Form is Submited Successfully";
+        document.body.appendChild(p);
+        setTimeout(() => p.remove(), 3000);
+
+        firstName.value = "";
+        lastName.value = "";
+      }
+    }
+
+    checkForm.addEventListener("submit", checkInputs);
+  </script>
+</html>
