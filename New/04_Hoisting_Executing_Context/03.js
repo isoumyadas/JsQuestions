@@ -1,5 +1,16 @@
 // Explain call stack with a visual of:
 
+function a() {
+  b();
+}
+function b() {
+  c();
+}
+function c() {
+  console.log("done");
+}
+a();
+
 // && The call stack is a data structure that tracks which function is currently running and what functions are waiting to run.
 
 // Before a() runs:        []
